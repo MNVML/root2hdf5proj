@@ -33,8 +33,9 @@ SAMPLE="me1P${DATA}"
 
 PROCESSING="201710"   # Erocia+
 PROCESSING="201801"   # NX
+PROCESSING="201804"   # NX w/ water-target encoded
 BASEDIR="/minerva/data/users/perdue/mlmpr/hdf5_direct/${PROCESSING}/${SAMPLE}"
-INPFILELIST="/minerva/app/users/perdue/root2hdf5proj/data/nukecc_${PROCESSING}_minerva_${SAMPLE}.txt"
+INPFILELIST="/minerva/app/users/perdue/root2hdf5proj/data/nukecc_201801_minerva_${SAMPLE}.txt"
 
 WCUTSTRING="-l -w 1000.0"
 FILEPATH=$BASEDIR/${FILEBASENAME}_127x94_${SAMPLE}_lowW_cut1000MeV
@@ -53,9 +54,9 @@ if [[ $TARGETSBALANCE != "" ]]; then
    FILEPATH=${FILEPATH}"_targets_bal" 
 fi
 
-FILEPATH=${FILEPATH}"_tiny" 
-MAXEVENTS=""
+# FILEPATH=${FILEPATH}"_tiny" 
 MAXEVENTS="-m 5000"
+MAXEVENTS=""
 
 ARGS="$WCUTSTRING -f $FILEPATH -z 100000000.0 -i 0 $DATAFLAG $SEGMENTBALANCE $TARGETSBALANCE -n $INPFILELIST $MAXEVENTS"
 
