@@ -479,6 +479,10 @@ int RecoTracksUtils::getPlaneIdCode(const EnhNukeCC* mc) const
     int vtx_module = mc->truth_vtx_module;
     int vtx_plane  = mc->truth_vtx_plane;
     int target     = mc->truth_targetID;
+    double z = mc->mc_vtx[2];
+    if (z > 5200. && z < 5400.) {
+        std::cout << "z, mod, plane, tgt = " << z << "," << vtx_module << "," << vtx_plane << "," << target << std::endl;
+    }
     // target is 3 bits, 0->5, plane is 2 bits, 1->2, need module+5 (no neg)
     int raw_code = target + (vtx_plane << 3) + ((vtx_module + 5) << 5);
 
