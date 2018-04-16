@@ -30,13 +30,13 @@ fi
 
 SAMPLE="me1E${DATA}_missingfiles"
 SAMPLE="me1F${DATA}"
-SAMPLE="me1N${DATA}_targetonly"
+SAMPLE="me1L${DATA}_targetonly"
 
 PROCESSING="201710"   # Erocia+
 PROCESSING="201801"   # NX
 PROCESSING="201804"   # NX w/ water-target encoded
 BASEDIR="/minerva/data/users/perdue/mlmpr/hdf5_direct/${PROCESSING}/${SAMPLE}"
-INPFILELIST="/minerva/app/users/perdue/root2hdf5proj/data/nukecc_201801_minerva_${SAMPLE}.txt"
+INPFILELIST="/minerva/app/users/perdue/root2hdf5proj/data/nukecc_minerva_${SAMPLE}.txt"
 
 WCUTSTRING="-l -w 1000.0"
 FILEPATH=$BASEDIR/${FILEBASENAME}_127x94_${SAMPLE}_lowW_cut1000MeV
