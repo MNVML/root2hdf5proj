@@ -30,7 +30,7 @@ fi
 
 SAMPLE="me1E${DATA}_missingfiles"
 SAMPLE="me1F${DATA}"
-SAMPLE="me1L${DATA}_targetonly"
+SAMPLE="me1C${DATA}_targetonly"
 
 PROCESSING="201710"   # Erocia+
 PROCESSING="201801"   # NX
