@@ -12,9 +12,11 @@ LDLIBS += -L../gzstream -lgzstream -lz
 LDFLAGS += -shared -Wl,-soname
 
 BINARIES   = hdf5_test \
-			 skimmer_root2hdf5
+			 skimmer_root2hdf5 \
+			 skimmer_root2hdf5_nueccqe
 TARGETS    = hdf5_test.o \
-			 skimmer_root2hdf5.o
+			 skimmer_root2hdf5.o \
+			 skimmer_root2hdf5_nueccqe.o
 
 all: $(BINARIES) 
 
@@ -28,6 +30,9 @@ hdf5_test: hdf5_test.o
 	$(CXX) $(INCLUDE) $(CXXFLAGS) $(ROOTFLAGS) $(LDLIBS) $^ -o $@    #link
 
 skimmer_root2hdf5: skimmer_root2hdf5.o
+	$(CXX) $(INCLUDE) $(CXXFLAGS) $(ROOTFLAGS) $(LDLIBS) $^ -o $@    #link
+
+skimmer_root2hdf5_nueccqe: skimmer_root2hdf5_nueccqe.o
 	$(CXX) $(INCLUDE) $(CXXFLAGS) $(ROOTFLAGS) $(LDLIBS) $^ -o $@    #link
 
 clean:

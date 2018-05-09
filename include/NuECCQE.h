@@ -1,8 +1,9 @@
 //////////////////////////////////////////////////////////
 // This class has been automatically generated on
-// Tue Mar  6 15:30:28 2018 by ROOT version 6.10/04
-// from TChain ch/ch
+// Mon Apr 16 09:51:20 2018 by ROOT version 5.34/36
+// from TTree NuECCQE/Tuple created by an AnaTuple managed by AnaTupleManager
 //
+// found on file: SIM_minerva_00113270_Subruns_0001_NuECCQE_Ana_Tuple_v21r1p1.root
 // It contains some modifications to deal with stupid ROOT STL errors and some const values
 //////////////////////////////////////////////////////////
 
@@ -14,7 +15,9 @@
 #include <TFile.h>
 
 // Header file for the classes stored in the TTree if any.
-#include "vector"
+// #include "/grid/fermiapp/minerva/software_releases/lcgcmake/build/lcg_61a/projects/ROOT-5.34.36/src/ROOT/5.34.36/cint/cint/lib/prec_stl/vector"
+
+// Fixed size dimensions of array or collections stored in the TTree if any.
 
 namespace RECOTRACKS_ANA {
     class NuECCQE {
@@ -22,22 +25,17 @@ namespace RECOTRACKS_ANA {
             TTree          *fChain;   //!pointer to the analyzed TTree or TChain
             Int_t           fCurrent; //!current Tree number in a TChain
 
-            static const size_t MAX_MICHEL_DIGITS_SZ = 50;
-            static const size_t MAX_N_PRONGS = 15;
-            static const size_t MAX_MC_NFSPART = 100;
-            static const size_t MAX_MC_ER_NPART = 100;
-            static const size_t MAX_EXTRAENERGY_NCLUSTERS = 300;
-            static const size_t MAX_NONPROTONSCORES_SZ = 10;
-            static const size_t MAX_VERTEXBLOB_NCLUSTERS = 100;
-            static const size_t MAX_EPRONG_NCLUSTERS = 250;
-            static const size_t MAX_MICHEL_ENERGY_SZ = 10;
-            static const size_t MAX_MICHEL_FIRST_HIT_FRACTION_SZ = 10;
-            static const size_t MAX_MICHEL_SLICE_ENERGY_SZ = 10;
-            static const size_t MAX_MICHEL_Z_EXTENT_SZ = 10;
-            static const size_t MAX_N_PRONGS = 10;
-            static const size_t MAX_MC_FR_NNUANCESTORIDS = 20;
-
-            // Fixed size dimensions of array or collections stored in the TTree if any.
+            static const size_t MAX_EXTRA_ENERGY_CLUSTERS = 500;
+            static const size_t MAX_N_SLICES = 3;
+            static const size_t MAX_MICHEL_DIGITS_SIZE = 50;
+            static const size_t MAX_MICHEL_DATA_SIZE = 50;
+            static const size_t MAX_NON_PROTON_SCORES = 10;
+            static const size_t MAX_VERTEX_BLOB_NCLUSTERS = 250;
+            static const size_t MAX_EPRONG_NCLUSTERS = 500;
+            static const size_t MAX_NPRONGS = 10;
+            static const size_t MAX_NFSPART = 100;
+            static const size_t MAX_NERPART = 200;
+            static const size_t MAX_NU_ANCESTORIDS = 20;
 
             // Declaration of leaf types
             Double_t        eventID;
@@ -46,7 +44,7 @@ namespace RECOTRACKS_ANA {
             Int_t           processType;
             Int_t           primaryPart;
             Int_t           n_slices;
-            Int_t           slice_numbers[1];   //[n_slices]
+            Int_t           slice_numbers[MAX_N_SLICES];   //[n_slices]
             Int_t           shared_slice;
             Double_t        vtx[4];
             Double_t        vtxErr[4];
@@ -112,24 +110,24 @@ namespace RECOTRACKS_ANA {
             Double_t        phys_energy_in_road_upstream;
             Double_t        phys_energy_unattached;
             Double_t        prim_vtx_smallest_opening_angle;
-            Int_t           latticeEnergyIndices[1];   //[n_indices]
+            Int_t           latticeEnergyIndices[23876];   //[n_indices]
             Int_t           michel_digits_sz;
-            Int_t           michel_digits[MAX_MICHEL_DIGITS_SZ];   //[michel_digits_sz]
+            Int_t           michel_digits[MAX_MICHEL_DIGITS_SIZE];   //[michel_digits_sz]
             Double_t        ExtraEnergy[4];
-            Double_t        ExtraEnergyClusters_X[MAX_EXTRAENERGY_NCLUSTERS];   //[ExtraEnergy_nClusters]
-            Double_t        ExtraEnergyClusters_Y[MAX_EXTRAENERGY_NCLUSTERS];   //[ExtraEnergy_nClusters]
-            Double_t        ExtraEnergyClusters_Z[MAX_EXTRAENERGY_NCLUSTERS];   //[ExtraEnergy_nClusters]
-            Double_t        ExtraEnergyClusters_energy[MAX_EXTRAENERGY_NCLUSTERS];   //[ExtraEnergy_nClusters]
-            Double_t        ExtraEnergyClusters_nDigits[MAX_EXTRAENERGY_NCLUSTERS];   //[ExtraEnergy_nClusters]
-            Double_t        ExtraEnergyClusters_width[MAX_EXTRAENERGY_NCLUSTERS];   //[ExtraEnergy_nClusters]
+            Double_t        ExtraEnergyClusters_X[MAX_EXTRA_ENERGY_CLUSTERS];   //[ExtraEnergy_nClusters]
+            Double_t        ExtraEnergyClusters_Y[MAX_EXTRA_ENERGY_CLUSTERS];   //[ExtraEnergy_nClusters]
+            Double_t        ExtraEnergyClusters_Z[MAX_EXTRA_ENERGY_CLUSTERS];   //[ExtraEnergy_nClusters]
+            Double_t        ExtraEnergyClusters_energy[MAX_EXTRA_ENERGY_CLUSTERS];   //[ExtraEnergy_nClusters]
+            Double_t        ExtraEnergyClusters_nDigits[MAX_EXTRA_ENERGY_CLUSTERS];   //[ExtraEnergy_nClusters]
+            Double_t        ExtraEnergyClusters_width[MAX_EXTRA_ENERGY_CLUSTERS];   //[ExtraEnergy_nClusters]
             Int_t           NonProtonScores_sz;
-            Double_t        NonProtonScores[MAX_NONPROTONSCORES_SZ];   //[NonProtonScores_sz]
-            Double_t        VertexBlobClusters_X[MAX_VERTEXBLOB_NCLUSTERS];   //[VertexBlob_nClusters]
-            Double_t        VertexBlobClusters_Y[MAX_VERTEXBLOB_NCLUSTERS];   //[VertexBlob_nClusters]
-            Double_t        VertexBlobClusters_Z[MAX_VERTEXBLOB_NCLUSTERS];   //[VertexBlob_nClusters]
-            Double_t        VertexBlobClusters_energy[MAX_VERTEXBLOB_NCLUSTERS];   //[VertexBlob_nClusters]
-            Double_t        VertexBlobClusters_nDigits[MAX_VERTEXBLOB_NCLUSTERS];   //[VertexBlob_nClusters]
-            Double_t        VertexBlobClusters_width[MAX_VERTEXBLOB_NCLUSTERS];   //[VertexBlob_nClusters]
+            Double_t        NonProtonScores[MAX_NON_PROTON_SCORES];   //[NonProtonScores_sz]
+            Double_t        VertexBlobClusters_X[MAX_VERTEX_BLOB_NCLUSTERS];   //[VertexBlob_nClusters]
+            Double_t        VertexBlobClusters_Y[MAX_VERTEX_BLOB_NCLUSTERS];   //[VertexBlob_nClusters]
+            Double_t        VertexBlobClusters_Z[MAX_VERTEX_BLOB_NCLUSTERS];   //[VertexBlob_nClusters]
+            Double_t        VertexBlobClusters_energy[MAX_VERTEX_BLOB_NCLUSTERS];   //[VertexBlob_nClusters]
+            Double_t        VertexBlobClusters_nDigits[MAX_VERTEX_BLOB_NCLUSTERS];   //[VertexBlob_nClusters]
+            Double_t        VertexBlobClusters_width[MAX_VERTEX_BLOB_NCLUSTERS];   //[VertexBlob_nClusters]
             Double_t        VertexEnergy[4];
             Double_t        eProngClusters_X[MAX_EPRONG_NCLUSTERS];   //[eProng_nClusters]
             Double_t        eProngClusters_Y[MAX_EPRONG_NCLUSTERS];   //[eProng_nClusters]
@@ -139,81 +137,81 @@ namespace RECOTRACKS_ANA {
             Double_t        eProngClusters_energy[MAX_EPRONG_NCLUSTERS];   //[eProng_nClusters]
             Double_t        eProngClusters_nDigits[MAX_EPRONG_NCLUSTERS];   //[eProng_nClusters]
             Double_t        eProngClusters_width[MAX_EPRONG_NCLUSTERS];   //[eProng_nClusters]
-            Double_t        latticeNormEnergySums[1];   //[n_indices]
-            Double_t        latticeRelativeTimes[1];   //[n_indices]
+            Double_t        latticeNormEnergySums[23876];   //[n_indices]
+            Double_t        latticeRelativeTimes[23876];   //[n_indices]
             Int_t           michel_energy_sz;
-            Double_t        michel_energy[MAX_MICHEL_ENERGY_SZ];   //[michel_energy_sz]
+            Double_t        michel_energy[MAX_MICHEL_DATA_SIZE];   //[michel_energy_sz]
             Int_t           michel_first_hit_fraction_sz;
-            Double_t        michel_first_hit_fraction[MAX_MICHEL_FIRST_HIT_FRACTION_SZ];   //[michel_first_hit_fraction_sz]
+            Double_t        michel_first_hit_fraction[MAX_MICHEL_DATA_SIZE];   //[michel_first_hit_fraction_sz]
             Int_t           michel_slice_energy_sz;
-            Double_t        michel_slice_energy[MAX_MICHEL_SLICE_ENERGY_SZ];   //[michel_slice_energy_sz]
+            Double_t        michel_slice_energy[MAX_MICHEL_DATA_SIZE];   //[michel_slice_energy_sz]
             Int_t           michel_z_extent_sz;
-            Double_t        michel_z_extent[MAX_MICHEL_Z_EXTENT_SZ];   //[michel_z_extent_sz]
+            Double_t        michel_z_extent[MAX_MICHEL_DATA_SIZE];   //[michel_z_extent_sz]
             Int_t           n_prongs;
-            Int_t           prong_nParticles[MAX_N_PRONGS];   //[n_prongs]
-            Int_t           prong_GEANTTrackNum[MAX_N_PRONGS];   //[n_prongs]
-            Int_t           prong_HasTruth[MAX_N_PRONGS];   //[n_prongs]
-            Int_t           prong_SeedTrackType[MAX_N_PRONGS];   //[n_prongs]
-            Int_t           prong_TruePID[MAX_N_PRONGS];   //[n_prongs]
-            Int_t           prong_binned_energy_nbins[MAX_N_PRONGS];   //[n_prongs]
-            Int_t           prong_n_frontdEdX_planes_sampled[MAX_N_PRONGS];   //[n_prongs]
-            Int_t           prong_n_tracks[MAX_N_PRONGS];   //[n_prongs]
-            Int_t           prong_vertexMoved[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_BackMiddleRatio[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_BeginsInTracker[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_CalCorrectedEnergy[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_DataFrac[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_ECALVisE[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_EWgtdLengthByEnergy[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_EWgtdProngLength[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_FirstFireFraction[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_FracProngFromBestTrueTraj[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_HCALVisE[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_HCALVisEnergy[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_LocalShowerWidth[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_LongitudinalBunchGapScore[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_MedianPlaneShowerWidth[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_NoHCALActivity[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_NoODActivity[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_NonMIPClusFrac[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_ODVisE[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_ProngLength[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_SeedTrackChi2[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_ShowerEnergySeparation[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_ShowerLengthEnergyScale[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_SideECALVisE[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_TotalVisE[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_TransverseGapScore[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_TransverseShowerAsymmetryDenominatorU[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_TransverseShowerAsymmetryDenominatorV[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_TransverseShowerAsymmetryDenominatorX[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_TransverseShowerAsymmetryNumeratorU[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_TransverseShowerAsymmetryNumeratorV[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_TransverseShowerAsymmetryNumeratorX[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_TrimmedCaloEnergy[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_TrimmedVisE[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_TrueEnergy[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_TrueFrontdEdX[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_TrueTheta[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_TrueTrajFracInProng[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_VertexResidualR[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_VertexResidualX[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_VertexResidualY[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_VertexResidualZ[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_dEdXMaxECAL[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_dEdXMaxTracker[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_dEdXMean[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_dEdXMeanFrontNumBinsTracker[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_dEdXMeanFrontPositionTracker[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_dEdXMeanFrontTracker[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_dEdXMedianECAL[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_dEdXMedianFrontTracker[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_dEdXMedianTracker[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_projection_bin_width[MAX_N_PRONGS];   //[n_prongs]
-            vector<vector<double> > *prong_axis_vector;
-            vector<vector<double> > *prong_axis_vertex;
-            vector<vector<double> > *prong_binned_energy_bin_contents;
-            vector<vector<double> > *prong_binned_energy_bin_indices;
+            Int_t           prong_nParticles[MAX_NPRONGS];   //[n_prongs]
+            Int_t           prong_GEANTTrackNum[MAX_NPRONGS];   //[n_prongs]
+            Int_t           prong_HasTruth[MAX_NPRONGS];   //[n_prongs]
+            Int_t           prong_SeedTrackType[MAX_NPRONGS];   //[n_prongs]
+            Int_t           prong_TruePID[MAX_NPRONGS];   //[n_prongs]
+            Int_t           prong_binned_energy_nbins[MAX_NPRONGS];   //[n_prongs]
+            Int_t           prong_n_frontdEdX_planes_sampled[MAX_NPRONGS];   //[n_prongs]
+            Int_t           prong_n_tracks[MAX_NPRONGS];   //[n_prongs]
+            Int_t           prong_vertexMoved[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_BackMiddleRatio[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_BeginsInTracker[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_CalCorrectedEnergy[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_DataFrac[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_ECALVisE[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_EWgtdLengthByEnergy[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_EWgtdProngLength[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_FirstFireFraction[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_FracProngFromBestTrueTraj[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_HCALVisE[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_HCALVisEnergy[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_LocalShowerWidth[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_LongitudinalBunchGapScore[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_MedianPlaneShowerWidth[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_NoHCALActivity[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_NoODActivity[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_NonMIPClusFrac[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_ODVisE[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_ProngLength[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_SeedTrackChi2[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_ShowerEnergySeparation[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_ShowerLengthEnergyScale[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_SideECALVisE[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_TotalVisE[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_TransverseGapScore[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_TransverseShowerAsymmetryDenominatorU[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_TransverseShowerAsymmetryDenominatorV[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_TransverseShowerAsymmetryDenominatorX[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_TransverseShowerAsymmetryNumeratorU[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_TransverseShowerAsymmetryNumeratorV[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_TransverseShowerAsymmetryNumeratorX[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_TrimmedCaloEnergy[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_TrimmedVisE[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_TrueEnergy[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_TrueFrontdEdX[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_TrueTheta[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_TrueTrajFracInProng[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_VertexResidualR[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_VertexResidualX[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_VertexResidualY[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_VertexResidualZ[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_dEdXMaxECAL[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_dEdXMaxTracker[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_dEdXMean[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_dEdXMeanFrontNumBinsTracker[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_dEdXMeanFrontPositionTracker[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_dEdXMeanFrontTracker[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_dEdXMedianECAL[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_dEdXMedianFrontTracker[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_dEdXMedianTracker[MAX_NPRONGS];   //[n_prongs]
+            Double_t        prong_projection_bin_width[MAX_NPRONGS];   //[n_prongs]
+            std::vector<std::vector<double> > *prong_axis_vector;
+            std::vector<std::vector<double> > *prong_axis_vertex;
+            std::vector<std::vector<double> > *prong_binned_energy_bin_contents;
+            std::vector<std::vector<double> > *prong_binned_energy_bin_indices;
             Bool_t          truth_pass_NuECCQE;
             Bool_t          truth_has_physics_event;
             Int_t           truth_IsFiducial;
@@ -361,26 +359,26 @@ namespace RECOTRACKS_ANA {
             Double_t        mc_initNucVec[4];
             Double_t        mc_primFSLepton[4];
             Int_t           mc_nFSPart;
-            Double_t        mc_FSPartPx[MAX_MC_NFSPART];   //[mc_nFSPart]
-            Double_t        mc_FSPartPy[MAX_MC_NFSPART];   //[mc_nFSPart]
-            Double_t        mc_FSPartPz[MAX_MC_NFSPART];   //[mc_nFSPart]
-            Double_t        mc_FSPartE[MAX_MC_NFSPART];   //[mc_nFSPart]
-            Int_t           mc_FSPartPDG[MAX_MC_NFSPART];   //[mc_nFSPart]
+            Double_t        mc_FSPartPx[MAX_NFSPART];   //[mc_nFSPart]
+            Double_t        mc_FSPartPy[MAX_NFSPART];   //[mc_nFSPart]
+            Double_t        mc_FSPartPz[MAX_NFSPART];   //[mc_nFSPart]
+            Double_t        mc_FSPartE[MAX_NFSPART];   //[mc_nFSPart]
+            Int_t           mc_FSPartPDG[MAX_NFSPART];   //[mc_nFSPart]
             Int_t           mc_er_nPart;
-            Int_t           mc_er_ID[MAX_MC_ER_NPART];   //[mc_er_nPart]
-            Int_t           mc_er_status[MAX_MC_ER_NPART];   //[mc_er_nPart]
-            Double_t        mc_er_posInNucX[MAX_MC_ER_NPART];   //[mc_er_nPart]
-            Double_t        mc_er_posInNucY[MAX_MC_ER_NPART];   //[mc_er_nPart]
-            Double_t        mc_er_posInNucZ[MAX_MC_ER_NPART];   //[mc_er_nPart]
-            Double_t        mc_er_Px[MAX_MC_ER_NPART];   //[mc_er_nPart]
-            Double_t        mc_er_Py[MAX_MC_ER_NPART];   //[mc_er_nPart]
-            Double_t        mc_er_Pz[MAX_MC_ER_NPART];   //[mc_er_nPart]
-            Double_t        mc_er_E[MAX_MC_ER_NPART];   //[mc_er_nPart]
-            Int_t           mc_er_FD[MAX_MC_ER_NPART];   //[mc_er_nPart]
-            Int_t           mc_er_LD[MAX_MC_ER_NPART];   //[mc_er_nPart]
-            Int_t           mc_er_mother[MAX_MC_ER_NPART];   //[mc_er_nPart]
+            Int_t           mc_er_ID[MAX_NERPART];   //[mc_er_nPart]
+            Int_t           mc_er_status[MAX_NERPART];   //[mc_er_nPart]
+            Double_t        mc_er_posInNucX[MAX_NERPART];   //[mc_er_nPart]
+            Double_t        mc_er_posInNucY[MAX_NERPART];   //[mc_er_nPart]
+            Double_t        mc_er_posInNucZ[MAX_NERPART];   //[mc_er_nPart]
+            Double_t        mc_er_Px[MAX_NERPART];   //[mc_er_nPart]
+            Double_t        mc_er_Py[MAX_NERPART];   //[mc_er_nPart]
+            Double_t        mc_er_Pz[MAX_NERPART];   //[mc_er_nPart]
+            Double_t        mc_er_E[MAX_NERPART];   //[mc_er_nPart]
+            Int_t           mc_er_FD[MAX_NERPART];   //[mc_er_nPart]
+            Int_t           mc_er_LD[MAX_NERPART];   //[mc_er_nPart]
+            Int_t           mc_er_mother[MAX_NERPART];   //[mc_er_nPart]
             Int_t           mc_fr_nNuAncestorIDs;
-            Int_t           mc_fr_nuAncestorIDs[MAX_MC_FR_NNUANCESTORIDS];   //[mc_fr_nNuAncestorIDs]
+            Int_t           mc_fr_nuAncestorIDs[MAX_NU_ANCESTORIDS];   //[mc_fr_nNuAncestorIDs]
             Int_t           mc_fr_nuParentID;
             Int_t           mc_fr_decMode;
             Double_t        mc_fr_primProtonVtx[3];
@@ -399,22 +397,22 @@ namespace RECOTRACKS_ANA {
             Double_t        mc_gen1_cvweight_totalFlux;
             Double_t        mc_gen1_cvweight_NA49;
             Int_t           mc_wgt_Flux_BeamFocus_sz;
-            Double_t        mc_wgt_Flux_BeamFocus[100];   //[mc_wgt_Flux_BeamFocus_sz]
+            Double_t        mc_wgt_Flux_BeamFocus[1];   //[mc_wgt_Flux_BeamFocus_sz]
             Int_t           mc_wgt_gen1_Flux_Tertiary_sz;
-            Double_t        mc_wgt_gen1_Flux_Tertiary[100];   //[mc_wgt_gen1_Flux_Tertiary_sz]
+            Double_t        mc_wgt_gen1_Flux_Tertiary[1];   //[mc_wgt_gen1_Flux_Tertiary_sz]
             Int_t           mc_wgt_gen1_Flux_NA49_sz;
-            Double_t        mc_wgt_gen1_Flux_NA49[100];   //[mc_wgt_gen1_Flux_NA49_sz]
+            Double_t        mc_wgt_gen1_Flux_NA49[1];   //[mc_wgt_gen1_Flux_NA49_sz]
             Int_t           mc_wgt_Norm_sz;
             Double_t        mc_wgt_Norm[1];   //[mc_wgt_Norm_sz]
             Int_t           mc_wgt_ppfx1_Total_sz;
-            Double_t        mc_wgt_ppfx1_Total[100];   //[mc_wgt_ppfx1_Total_sz]
+            Double_t        mc_wgt_ppfx1_Total[1];   //[mc_wgt_ppfx1_Total_sz]
             Int_t           mc_vertex_batch;
-            Double_t        prong_part_score[MAX_N_PRONGS];   //[n_prongs]
-            Double_t        prong_part_mass[MAX_N_PRONGS];   //[n_prongs]
-            Int_t           prong_part_charge[MAX_N_PRONGS];   //[n_prongs]
-            Int_t           prong_part_pid[MAX_N_PRONGS];   //[n_prongs]
-            vector<vector<double> > *prong_part_E;
-            vector<vector<double> > *prong_part_pos;
+            Double_t        prong_part_score[1];   //[n_prongs]
+            Double_t        prong_part_mass[1];   //[n_prongs]
+            Int_t           prong_part_charge[1];   //[n_prongs]
+            Int_t           prong_part_pid[1];   //[n_prongs]
+            std::vector<std::vector<double> > *prong_part_E;
+            std::vector<std::vector<double> > *prong_part_pos;
 
             // List of branches
             TBranch        *b_eventID;   //!
@@ -814,24 +812,11 @@ RECOTRACKS_ANA::NuECCQE::NuECCQE(TTree *tree) : fChain(0)
     // if parameter tree is not specified (or zero), connect the file
     // used to generate this class and read the Tree.
     if (tree == 0) {
-
-        // The following code should be used if you want this class to access
-        // a single tree instead of a chain
-        TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("Memory Directory");
+        TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("SIM_minerva_00113270_Subruns_0001_NuECCQE_Ana_Tuple_v21r1p1.root");
         if (!f || !f->IsOpen()) {
-            f = new TFile("Memory Directory");
+            f = new TFile("SIM_minerva_00113270_Subruns_0001_NuECCQE_Ana_Tuple_v21r1p1.root");
         }
-        f->GetObject("ch",tree);
-
-#else // SINGLE_TREE
-
-        // The following code should be used if you want this class to access a chain
-        // of trees.
-        TChain * chain = new TChain("ch","ch");
-        chain->Add("/minerva/data/users/perdue/mlmpr/nue/SIM_minerva_00110000_Subruns_0001_NuECCQE_Ana_Tuple_v21r1p1.root/NuECCQE");
-        tree = chain;
-#ifdef SINGLE_TREE
-#endif // SINGLE_TREE
+        f->GetObject("NuECCQE",tree);
 
     }
     Init(tree);
@@ -849,7 +834,6 @@ Int_t RECOTRACKS_ANA::NuECCQE::GetEntry(Long64_t entry)
     if (!fChain) return 0;
     return fChain->GetEntry(entry);
 }
-
 Long64_t RECOTRACKS_ANA::NuECCQE::LoadTree(Long64_t entry)
 {
     // Set the environment to read one entry
@@ -958,7 +942,7 @@ void RECOTRACKS_ANA::NuECCQE::Init(TTree *tree)
     fChain->SetBranchAddress("phys_energy_in_road_upstream", &phys_energy_in_road_upstream, &b_phys_energy_in_road_upstream);
     fChain->SetBranchAddress("phys_energy_unattached", &phys_energy_unattached, &b_phys_energy_unattached);
     fChain->SetBranchAddress("prim_vtx_smallest_opening_angle", &prim_vtx_smallest_opening_angle, &b_prim_vtx_smallest_opening_angle);
-    fChain->SetBranchAddress("latticeEnergyIndices", &latticeEnergyIndices, &b_latticeEnergyIndices);
+    fChain->SetBranchAddress("latticeEnergyIndices", latticeEnergyIndices, &b_latticeEnergyIndices);
     fChain->SetBranchAddress("michel_digits_sz", &michel_digits_sz, &b_michel_digits_sz);
     fChain->SetBranchAddress("michel_digits", michel_digits, &b_michel_digits);
     fChain->SetBranchAddress("ExtraEnergy", ExtraEnergy, &b_ExtraEnergy);
@@ -985,8 +969,8 @@ void RECOTRACKS_ANA::NuECCQE::Init(TTree *tree)
     fChain->SetBranchAddress("eProngClusters_energy", eProngClusters_energy, &b_eProngClusters_energy);
     fChain->SetBranchAddress("eProngClusters_nDigits", eProngClusters_nDigits, &b_eProngClusters_nDigits);
     fChain->SetBranchAddress("eProngClusters_width", eProngClusters_width, &b_eProngClusters_width);
-    fChain->SetBranchAddress("latticeNormEnergySums", &latticeNormEnergySums, &b_latticeNormEnergySums);
-    fChain->SetBranchAddress("latticeRelativeTimes", &latticeRelativeTimes, &b_latticeRelativeTimes);
+    fChain->SetBranchAddress("latticeNormEnergySums", latticeNormEnergySums, &b_latticeNormEnergySums);
+    fChain->SetBranchAddress("latticeRelativeTimes", latticeRelativeTimes, &b_latticeRelativeTimes);
     fChain->SetBranchAddress("michel_energy_sz", &michel_energy_sz, &b_michel_energy_sz);
     fChain->SetBranchAddress("michel_energy", michel_energy, &b_michel_energy);
     fChain->SetBranchAddress("michel_first_hit_fraction_sz", &michel_first_hit_fraction_sz, &b_michel_first_hit_fraction_sz);
@@ -1245,15 +1229,15 @@ void RECOTRACKS_ANA::NuECCQE::Init(TTree *tree)
     fChain->SetBranchAddress("mc_gen1_cvweight_totalFlux", &mc_gen1_cvweight_totalFlux, &b_mc_gen1_cvweight_totalFlux);
     fChain->SetBranchAddress("mc_gen1_cvweight_NA49", &mc_gen1_cvweight_NA49, &b_mc_gen1_cvweight_NA49);
     fChain->SetBranchAddress("mc_wgt_Flux_BeamFocus_sz", &mc_wgt_Flux_BeamFocus_sz, &b_mc_wgt_Flux_BeamFocus_sz);
-    fChain->SetBranchAddress("mc_wgt_Flux_BeamFocus", mc_wgt_Flux_BeamFocus, &b_mc_wgt_Flux_BeamFocus);
+    fChain->SetBranchAddress("mc_wgt_Flux_BeamFocus", &mc_wgt_Flux_BeamFocus, &b_mc_wgt_Flux_BeamFocus);
     fChain->SetBranchAddress("mc_wgt_gen1_Flux_Tertiary_sz", &mc_wgt_gen1_Flux_Tertiary_sz, &b_mc_wgt_gen1_Flux_Tertiary_sz);
-    fChain->SetBranchAddress("mc_wgt_gen1_Flux_Tertiary", mc_wgt_gen1_Flux_Tertiary, &b_mc_wgt_gen1_Flux_Tertiary);
+    fChain->SetBranchAddress("mc_wgt_gen1_Flux_Tertiary", &mc_wgt_gen1_Flux_Tertiary, &b_mc_wgt_gen1_Flux_Tertiary);
     fChain->SetBranchAddress("mc_wgt_gen1_Flux_NA49_sz", &mc_wgt_gen1_Flux_NA49_sz, &b_mc_wgt_gen1_Flux_NA49_sz);
-    fChain->SetBranchAddress("mc_wgt_gen1_Flux_NA49", mc_wgt_gen1_Flux_NA49, &b_mc_wgt_gen1_Flux_NA49);
+    fChain->SetBranchAddress("mc_wgt_gen1_Flux_NA49", &mc_wgt_gen1_Flux_NA49, &b_mc_wgt_gen1_Flux_NA49);
     fChain->SetBranchAddress("mc_wgt_Norm_sz", &mc_wgt_Norm_sz, &b_mc_wgt_Norm_sz);
     fChain->SetBranchAddress("mc_wgt_Norm", &mc_wgt_Norm, &b_mc_wgt_Norm);
     fChain->SetBranchAddress("mc_wgt_ppfx1_Total_sz", &mc_wgt_ppfx1_Total_sz, &b_mc_wgt_ppfx1_Total_sz);
-    fChain->SetBranchAddress("mc_wgt_ppfx1_Total", mc_wgt_ppfx1_Total, &b_mc_wgt_ppfx1_Total);
+    fChain->SetBranchAddress("mc_wgt_ppfx1_Total", &mc_wgt_ppfx1_Total, &b_mc_wgt_ppfx1_Total);
     fChain->SetBranchAddress("mc_vertex_batch", &mc_vertex_batch, &b_mc_vertex_batch);
     fChain->SetBranchAddress("prong_part_score", prong_part_score, &b_prong_part_score);
     fChain->SetBranchAddress("prong_part_mass", prong_part_mass, &b_prong_part_mass);
@@ -1264,7 +1248,7 @@ void RECOTRACKS_ANA::NuECCQE::Init(TTree *tree)
     Notify();
 }
 
-Bool_t NuECCQE::Notify()
+Bool_t RECOTRACKS_ANA::NuECCQE::Notify()
 {
     // The Notify() function is called when a new file is opened. This
     // can be either for a new TTree in a TChain or when when a new TTree
@@ -1282,7 +1266,6 @@ void RECOTRACKS_ANA::NuECCQE::Show(Long64_t entry)
     if (!fChain) return;
     fChain->Show(entry);
 }
-
 Int_t RECOTRACKS_ANA::NuECCQE::Cut(Long64_t entry)
 {
     // This function may be called from Loop.
