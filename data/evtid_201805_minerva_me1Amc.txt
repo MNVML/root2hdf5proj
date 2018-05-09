@@ -1,0 +1,8 @@
+/pnfs/minerva/persistent/users/perdue/mnv--mc20180413/grid/central_value/minerva/ana/v21r1p1/00/11/32/70/SIM_minerva_00113270_Subruns_0001_NuECCQE_Ana_Tuple_v21r1p1.root
+/pnfs/minerva/persistent/users/perdue/mnv--mc20180413/grid/central_value/minerva/ana/v21r1p1/00/11/32/70/SIM_minerva_00113270_Subruns_0002_NuECCQE_Ana_Tuple_v21r1p1.root
+/pnfs/minerva/persistent/users/perdue/mnv--mc20180413/grid/central_value/minerva/ana/v21r1p1/00/11/32/70/SIM_minerva_00113270_Subruns_0003_NuECCQE_Ana_Tuple_v21r1p1.root
+/pnfs/minerva/persistent/users/perdue/mnv--mc20180413/grid/central_value/minerva/ana/v21r1p1/00/11/32/70/SIM_minerva_00113270_Subruns_0004_NuECCQE_Ana_Tuple_v21r1p1.root
+/pnfs/minerva/persistent/users/perdue/mnv--mc20180413/grid/central_value/minerva/ana/v21r1p1/00/11/32/70/SIM_minerva_00113270_Subruns_0005_NuECCQE_Ana_Tuple_v21r1p1.root
+/pnfs/minerva/persistent/users/perdue/mnv--mc20180413/grid/central_value/minerva/ana/v21r1p1/00/11/32/70/SIM_minerva_00113270_Subruns_0006_NuECCQE_Ana_Tuple_v21r1p1.root
+/pnfs/minerva/persistent/users/perdue/mnv--mc20180413/grid/central_value/minerva/ana/v21r1p1/00/11/32/70/SIM_minerva_00113270_Subruns_0007_NuECCQE_Ana_Tuple_v21r1p1.root
+/pnfs/minerva/persistent/users/perdue/mnv--mc20180413/grid/central_value/minerva/ana/v21r1p1/00/11/32/70/SIM_minerva_00113270_Subruns_0008_NuECCQE_Ana_Tuple_v21r1p1.root
