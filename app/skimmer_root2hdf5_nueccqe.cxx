@@ -117,6 +117,7 @@ int Skim(int n_max_evts, double max_z,
             make_scalar_column<float>("zs")
             ); 
     auto gendat = make_ntuple({hdffile, "gen_data"},
+            make_scalar_column<unsigned int>("sig_type"),
             make_scalar_column<unsigned int>("current"),
             make_scalar_column<unsigned int>("int_type"),
             make_scalar_column<unsigned int>("targetZ"),
@@ -174,6 +175,21 @@ int Skim(int n_max_evts, double max_z,
         double x_bj = mc->mc_Bjorkenx;
         double y_bj = mc->mc_Bjorkeny;
         double Q2 = mc->mc_Q2;
+
+        uint32_t sig_type = 0;  // NC
+        int pdg_lep = mc->mc_primaryLepton;
+        if (current == 1) {     // CC
+            int abs_lep = pdg_lep < 0 ? -1 * pdg_lep : pdg_lep;
+            if (abs_lep  == PDG_ELECTRON) {
+                sig_type = 1;   // CC - NuE
+            }
+            else if (abs_lep  == PDG_MUON) {
+                sig_type = 2;   // CC - NuMu
+            }
+            else {
+                sig_type = 3;   // CC - NuTau, basically
+            }
+        }
 
         if (do_low_w_cut || do_high_w_cut) {
             if (do_low_w_cut) {
@@ -298,7 +314,7 @@ int Skim(int n_max_evts, double max_z,
         imgdat.insert(xs_1d.data(), us_1d.data(), vs_1d.data());
         if (!is_data) {
             vtxdat.insert(true_z);
-            gendat.insert(current, int_type, targetZ, E, leptE, W, x_bj, y_bj, Q2);
+            gendat.insert(sig_type, current, int_type, targetZ, E, leptE, W, x_bj, y_bj, Q2);
             hadrodat.insert(
                     n_protons, n_neutrons, n_chgdpions,
                     n_neutpions, n_chgdkaons, n_others, n_hadmultmeas,
