@@ -4,7 +4,7 @@ BASE="/pnfs/minerva/persistent/users/perdue"
 
 SAMPLE="me1Amc"
 OUTNAME="evtid_201805_minerva_${SAMPLE}.txt"
-MBASE="${BASE}/mnv--mc20180413/grid/central_value/minerva/ana/v21r1p1/"
+MBASE="${BASE}/mnv--mc20180510/grid/central_value/minerva/ana/v21r1p1/"
 tree -fi $MBASE | grep ".root" > $OUTNAME
 
 # me1A nukecc data w/ 127x94 lattice and time lattice
