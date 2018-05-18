@@ -29,10 +29,10 @@ namespace RECOTRACKS_ANA {
             static const size_t MAX_N_SLICES = 3;
             static const size_t MAX_MICHEL_DIGITS_SIZE = 50;
             static const size_t MAX_MICHEL_DATA_SIZE = 50;
-            static const size_t MAX_NON_PROTON_SCORES = 10;
+            static const size_t MAX_NON_PROTON_SCORES = 100;
             static const size_t MAX_VERTEX_BLOB_NCLUSTERS = 250;
             static const size_t MAX_EPRONG_NCLUSTERS = 500;
-            static const size_t MAX_NPRONGS = 10;
+            static const size_t MAX_NPRONGS = 12;
             static const size_t MAX_NFSPART = 100;
             static const size_t MAX_NERPART = 200;
             static const size_t MAX_NU_ANCESTORIDS = 20;
@@ -858,17 +858,24 @@ void RECOTRACKS_ANA::NuECCQE::Init(TTree *tree)
     // (once per file to be processed).
 
     // Set object pointer
-    prong_axis_vector = 0;
-    prong_axis_vertex = 0;
-    prong_binned_energy_bin_contents = 0;
-    prong_binned_energy_bin_indices = 0;
-    prong_part_E = 0;
-    prong_part_pos = 0;
+    prong_axis_vector = new std::vector<std::vector<double>>;
+    prong_axis_vertex = new std::vector<std::vector<double>>;
+    prong_binned_energy_bin_contents = new std::vector<std::vector<double>>;
+    prong_binned_energy_bin_indices = new std::vector<std::vector<double>>;
+    prong_part_E = new std::vector<std::vector<double>>;
+    prong_part_pos = new std::vector<std::vector<double>>;
     // Set branch addresses and branch pointers
     if (!tree) return;
     fChain = tree;
     fCurrent = -1;
     fChain->SetMakeClass(1);
+
+    fChain->GetBranch("prong_axis_vector")->SetMakeClass(kFALSE);
+    fChain->GetBranch("prong_axis_vertex")->SetMakeClass(kFALSE);
+    fChain->GetBranch("prong_binned_energy_bin_contents")->SetMakeClass(kFALSE);
+    fChain->GetBranch("prong_binned_energy_bin_indices")->SetMakeClass(kFALSE);
+    fChain->GetBranch("prong_part_E")->SetMakeClass(kFALSE);
+    fChain->GetBranch("prong_part_pos")->SetMakeClass(kFALSE);
 
     fChain->SetBranchAddress("eventID", &eventID, &b_eventID);
     fChain->SetBranchAddress("physEvtNum", &physEvtNum, &b_physEvtNum);
@@ -1255,6 +1262,13 @@ Bool_t RECOTRACKS_ANA::NuECCQE::Notify()
     // is started when using PROOF. It is normally not necessary to make changes
     // to the generated code, but the routine can be extended by the
     // user if needed. The return value is currently not used.
+
+    fChain->GetBranch("prong_axis_vector")->SetMakeClass(kFALSE);
+    fChain->GetBranch("prong_axis_vertex")->SetMakeClass(kFALSE);
+    fChain->GetBranch("prong_binned_energy_bin_contents")->SetMakeClass(kFALSE);
+    fChain->GetBranch("prong_binned_energy_bin_indices")->SetMakeClass(kFALSE);
+    fChain->GetBranch("prong_part_E")->SetMakeClass(kFALSE);
+    fChain->GetBranch("prong_part_pos")->SetMakeClass(kFALSE);
 
     return kTRUE;
 }
