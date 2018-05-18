@@ -28,6 +28,8 @@
 #include <stdlib.h>
 #include <algorithm>
 #include <random>
+#include <functional>
+#include <limits>
 
 #include "hep_hpc/hdf5/File.hpp"
 #include "hep_hpc/hdf5/make_column.hpp"
@@ -79,7 +81,7 @@ int Skim(int n_max_evts, double max_z,
         std::string filebasename, 
         int first_event_number, bool is_data, std::string ntuple_list_file,
         bool norm_to_max, bool do_low_w_cut, bool do_high_w_cut,
-        double w_cut_val_mev)
+        double w_cut_val_mev, int print_freq)
 {
     RecoTracksUtils utils;
     //! Get MC Tree
@@ -160,7 +162,7 @@ int Skim(int n_max_evts, double max_z,
     n_proc += first_event_number;
     for (i = first_event_number; i < n_proc; ++i) {
 
-        if ((i + 1) % 100 == 0) {
+        if ((i + 1) % print_freq == 0) {
             std::cout << "Processed " << i << " / " << entries_mc << " ( " << 
                 double(i)/entries_mc * 100.0 << " \%) events..." << std::endl;
         }
@@ -247,6 +249,11 @@ int Skim(int n_max_evts, double max_z,
         //     " subrun = " << subrun << " " <<
         //     " gate = " << gate << " " <<
         //     " slice = " << slice << " " << std::endl;
+        // std::string s_evtid = std::to_string(evtid);
+        // std::size_t str_hash = std::hash<std::string>{}(s_evtid);
+        // std::cout << "eventid (int) = " << evtid << "; (str) = " << s_evtid << std::endl;
+        // std::cout << "   hash = " << str_hash << std::endl;
+        // std::cout << "   hash = " << 1.0 * str_hash / std::numeric_limits<size_t>::max() << std::endl;
 
         std::vector<int> pdgs;
         std::vector<double> energies;
@@ -342,6 +349,7 @@ int main( int argc, char *argv[]) try {
     std::string filebase = "nukecc_skim_me1Bmc_zsegments";
     std::string ntuple_list_file = "/minerva/data/users/perdue/RecoTracks/files/nukecc_20160825-0829_minerva13Cmc.txt";
     int first_event_number = 0;
+    int print_freq = 100;
     bool is_data = false;
     bool norm_to_max = false;
     bool do_low_w_cut = false;
@@ -374,6 +382,10 @@ int main( int argc, char *argv[]) try {
             optind++;
             max_evts = atoi(argv[optind]);
         }
+        else if (sw=="-p") {
+            optind++;
+            print_freq = atoi(argv[optind]);
+        }
         else if (sw=="-n") {
             optind++;
             ntuple_list_file = argv[optind];
@@ -402,13 +414,14 @@ int main( int argc, char *argv[]) try {
     std::cout << " true max_z = " << max_z << std::endl;
     std::cout << " file base name = " << filebase << std::endl;
     std::cout << " first evt # = " << first_event_number << std::endl;
+    std::cout << " print freq = " << print_freq << std::endl;
     std::cout << " is data = " << is_data << std::endl;
     std::cout << " ntuple list file = " << ntuple_list_file << std::endl;
     std::cout << " norm to max energy = " << norm_to_max << std::endl;
 
     int status = Skim(max_evts, max_z, filebase,
             first_event_number, is_data, ntuple_list_file, norm_to_max, do_low_w_cut,
-            do_high_w_cut, w_cut_val_mev);
+            do_high_w_cut, w_cut_val_mev, print_freq);
     return status;
 
 } catch (std::exception const& ex) {
