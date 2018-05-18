@@ -28,8 +28,6 @@
 #include <stdlib.h>
 #include <algorithm>
 #include <random>
-#include <functional>
-#include <limits>
 
 #include "hep_hpc/hdf5/File.hpp"
 #include "hep_hpc/hdf5/make_column.hpp"
@@ -244,16 +242,6 @@ int Skim(int n_max_evts, double max_z,
         uint64_t evtid = utils.computeEventId(run, subrun, gate, slice);
         uint32_t evtia = utils.computeEventId32a(run, slice);
         uint32_t evtib = utils.computeEventId32b(subrun, gate);
-        // std::cout << "i =  " << i << " " <<
-        //     " run = " << run << " " <<
-        //     " subrun = " << subrun << " " <<
-        //     " gate = " << gate << " " <<
-        //     " slice = " << slice << " " << std::endl;
-        // std::string s_evtid = std::to_string(evtid);
-        // std::size_t str_hash = std::hash<std::string>{}(s_evtid);
-        // std::cout << "eventid (int) = " << evtid << "; (str) = " << s_evtid << std::endl;
-        // std::cout << "   hash = " << str_hash << std::endl;
-        // std::cout << "   hash = " << 1.0 * str_hash / std::numeric_limits<size_t>::max() << std::endl;
 
         std::vector<int> pdgs;
         std::vector<double> energies;

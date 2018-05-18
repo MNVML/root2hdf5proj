@@ -24,7 +24,8 @@ fi
 SAMPLE="me1A${DATA}"
 
 PROCESSING="201805"   # NX whole evt id
-KEY="1613670"
+KEY="1613670"  # crashes
+KEY="1613671"
 BASEDIR="/minerva/data/users/perdue/mlmpr/hdf5_direct/${PROCESSING}/${SAMPLE}"
 INPFILELIST="/minerva/app/users/perdue/root2hdf5proj/data/evtid_${PROCESSING}_minerva_${SAMPLE}${KEY}.txt"
 
@@ -52,7 +53,6 @@ cat << EOF
 time nice ./skimmer_root2hdf5_nueccqe $ARGS 2>&1 | tee ${STARTTIME}_out_log.txt
 EOF
 mkdir -p $BASEDIR
-# gdb -tui --args ./skimmer_root2hdf5_nueccqe \
-gdb --args ./skimmer_root2hdf5_nueccqe $ARGS# 2>&1 | tee ${STARTTIME}_out_log.txt
-# time nice ./skimmer_root2hdf5_nueccqe $ARGS 2>&1 | tee ${STARTTIME}_out_log.txt
-#j valgrind --suppressions=$ROOTSYS/etc/valgrind-root.supp ./skimmer_root2hdf5_nueccqe $ARGS 2>&1 | tee ${STARTTIME}_out_log.txt
+# gdb --args ./skimmer_root2hdf5_nueccqe $ARGS
+time nice ./skimmer_root2hdf5_nueccqe $ARGS 2>&1 | tee ${STARTTIME}_out_log.txt
+# valgrind --suppressions=$ROOTSYS/etc/valgrind-root.supp ./skimmer_root2hdf5_nueccqe $ARGS 2>&1 | tee ${STARTTIME}_out_log.txt
