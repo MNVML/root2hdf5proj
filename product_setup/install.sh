@@ -1,5 +1,8 @@
 #!/bin/bash
 
+DBGPROF="prof"
+DBGPROF="debug"
+
 products='
 build_base-v6_3_0
 hep_hpc_toolkit-v00_05_00
@@ -18,7 +21,7 @@ tbb-v2017_7
 
 for pack in $packages
 do
-    bash pullPackage `pwd` slf6 $pack e14 prof
+    bash pullPackage `pwd` slf6 $pack e14 $DBGPROF
 done
 
 packages='
@@ -28,7 +31,7 @@ libxml2-v2_9_4b
 
 for pack in $packages
 do
-    bash pullPackage `pwd` slf6 $pack prof
+    bash pullPackage `pwd` slf6 $pack $DBGPROF
 done
 
 bash pullPackage `pwd` slf6 protobuf-v3_3_1 e14
