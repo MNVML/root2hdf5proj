@@ -5,6 +5,7 @@ app/skimmer_vtx_finding
 app/skimmer_hadmult
 app/skimmer_root2hdf5
 app/skimmer_root2hdf5_nueccqe
+app/skimsplit_root2hdf5_nueccqe
 app/*.o
 gzstream/*.o
 gzstream/*.so
