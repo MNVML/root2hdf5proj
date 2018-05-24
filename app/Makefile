@@ -14,11 +14,13 @@ LDFLAGS += -shared -Wl,-soname
 BINARIES   = hdf5_test \
 			 skimmer_root2hdf5 \
 			 skimmer_root2hdf5_nueccqe \
-			 skimsplit_root2hdf5_nueccqe
+			 skimsplit_root2hdf5_nueccqe \
+			 skimsplit_root2hdf5_wholevt
 TARGETS    = hdf5_test.o \
 			 skimmer_root2hdf5.o \
 			 skimmer_root2hdf5_nueccqe.o \
-			 skimsplit_root2hdf5_nueccqe.o
+			 skimsplit_root2hdf5_nueccqe.o \
+			 skimsplit_root2hdf5_wholevt.o
 
 all: $(BINARIES) 
 
@@ -38,6 +40,9 @@ skimmer_root2hdf5_nueccqe: skimmer_root2hdf5_nueccqe.o
 	$(CXX) $(INCLUDE) $(CXXFLAGS) $(ROOTFLAGS) $(LDLIBS) $^ -o $@    #link
 
 skimsplit_root2hdf5_nueccqe: skimsplit_root2hdf5_nueccqe.o
+	$(CXX) $(INCLUDE) $(CXXFLAGS) $(ROOTFLAGS) $(LDLIBS) $^ -o $@    #link
+
+skimsplit_root2hdf5_wholevt: skimsplit_root2hdf5_wholevt.o
 	$(CXX) $(INCLUDE) $(CXXFLAGS) $(ROOTFLAGS) $(LDLIBS) $^ -o $@    #link
 
 clean:
