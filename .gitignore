@@ -6,6 +6,7 @@ app/skimmer_hadmult
 app/skimmer_root2hdf5
 app/skimmer_root2hdf5_nueccqe
 app/skimsplit_root2hdf5_nueccqe
+app/skimsplit_root2hdf5_nukecc_hadmultkine
 app/*.o
 gzstream/*.o
 gzstream/*.so
