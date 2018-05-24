@@ -15,12 +15,14 @@ BINARIES   = hdf5_test \
 			 skimmer_root2hdf5 \
 			 skimmer_root2hdf5_nueccqe \
 			 skimsplit_root2hdf5_nueccqe \
-			 skimsplit_root2hdf5_wholevt
+			 skimsplit_root2hdf5_wholevt \
+			 skimsplit_root2hdf5_nukecc_hadmultkine
 TARGETS    = hdf5_test.o \
 			 skimmer_root2hdf5.o \
 			 skimmer_root2hdf5_nueccqe.o \
 			 skimsplit_root2hdf5_nueccqe.o \
-			 skimsplit_root2hdf5_wholevt.o
+			 skimsplit_root2hdf5_wholevt.o \
+			 skimsplit_root2hdf5_nukecc_hadmultkine.o
 
 all: $(BINARIES) 
 
@@ -43,6 +45,9 @@ skimsplit_root2hdf5_nueccqe: skimsplit_root2hdf5_nueccqe.o
 	$(CXX) $(INCLUDE) $(CXXFLAGS) $(ROOTFLAGS) $(LDLIBS) $^ -o $@    #link
 
 skimsplit_root2hdf5_wholevt: skimsplit_root2hdf5_wholevt.o
+	$(CXX) $(INCLUDE) $(CXXFLAGS) $(ROOTFLAGS) $(LDLIBS) $^ -o $@    #link
+
+skimsplit_root2hdf5_nukecc_hadmultkine: skimsplit_root2hdf5_nukecc_hadmultkine.o
 	$(CXX) $(INCLUDE) $(CXXFLAGS) $(ROOTFLAGS) $(LDLIBS) $^ -o $@    #link
 
 clean:
