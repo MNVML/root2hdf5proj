@@ -491,7 +491,7 @@ int main( int argc, char *argv[]) try {
         if (sw=="--data") {
             is_data = true;
         }
-        if (sw=="--mc") {
+        else if (sw=="--mc") {
             is_data = false;
         }
         else if (sw=="-e") {

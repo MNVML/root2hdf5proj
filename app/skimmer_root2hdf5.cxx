@@ -405,13 +405,13 @@ int main( int argc, char *argv[]) try {
         if (sw=="--data") {
             is_data = true;
         }
-        if (sw=="--segment_balance") {
+        else if (sw=="--segment_balance") {
             segment_balance = true;
         }
-        if (sw=="--targets_balance") {
+        else if (sw=="--targets_balance") {
             targets_balance = true;
         }
-        if (sw=="--mc") {
+        else if (sw=="--mc") {
             is_data = false;
         }
         else if (sw=="-e") {
