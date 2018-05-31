@@ -870,12 +870,14 @@ void RECOTRACKS_ANA::NuECCQE::Init(TTree *tree)
     fCurrent = -1;
     fChain->SetMakeClass(1);
 
+#if 0
     fChain->GetBranch("prong_axis_vector")->SetMakeClass(kFALSE);
     fChain->GetBranch("prong_axis_vertex")->SetMakeClass(kFALSE);
     fChain->GetBranch("prong_binned_energy_bin_contents")->SetMakeClass(kFALSE);
     fChain->GetBranch("prong_binned_energy_bin_indices")->SetMakeClass(kFALSE);
     fChain->GetBranch("prong_part_E")->SetMakeClass(kFALSE);
     fChain->GetBranch("prong_part_pos")->SetMakeClass(kFALSE);
+#endif
 
     fChain->SetBranchAddress("eventID", &eventID, &b_eventID);
     fChain->SetBranchAddress("physEvtNum", &physEvtNum, &b_physEvtNum);
@@ -1263,12 +1265,22 @@ Bool_t RECOTRACKS_ANA::NuECCQE::Notify()
     // to the generated code, but the routine can be extended by the
     // user if needed. The return value is currently not used.
 
+#if 0
     fChain->GetBranch("prong_axis_vector")->SetMakeClass(kFALSE);
     fChain->GetBranch("prong_axis_vertex")->SetMakeClass(kFALSE);
     fChain->GetBranch("prong_binned_energy_bin_contents")->SetMakeClass(kFALSE);
     fChain->GetBranch("prong_binned_energy_bin_indices")->SetMakeClass(kFALSE);
     fChain->GetBranch("prong_part_E")->SetMakeClass(kFALSE);
     fChain->GetBranch("prong_part_pos")->SetMakeClass(kFALSE);
+#endif
+
+
+    if (b_prong_axis_vector) b_prong_axis_vector->SetMakeClass(kFALSE);
+    if (b_prong_axis_vertex) b_prong_axis_vertex->SetMakeClass(kFALSE);
+    if (b_prong_binned_energy_bin_contents) b_prong_binned_energy_bin_contents->SetMakeClass(kFALSE);
+    if (b_prong_binned_energy_bin_indices) b_prong_binned_energy_bin_indices->SetMakeClass(kFALSE);
+    if (b_prong_part_E) b_prong_part_E->SetMakeClass(kFALSE);
+    if (b_prong_part_pos) b_prong_part_pos->SetMakeClass(kFALSE);
 
     return kTRUE;
 }

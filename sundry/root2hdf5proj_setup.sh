@@ -2,7 +2,12 @@
 TMP_PRODUCTSROOT="/minerva/app/users/perdue"
 TMP_PRODUCTS="hep_hpc_products"
 TMP_PROJECT="/minerva/app/users/perdue/root2hdf5proj"
-cp ~/.syntastic_cpp_config_root2hdf5 ~/.syntastic_cpp_config
+
+TMP_PRODUCTSROOT=/home/pcanal/scratch/gabe
+TMP_PRODUCT=build
+TMP_PROJECT=/home/pcanal/scratch/gabe/root2hdf5proj
+
+#cp ~/.syntastic_cpp_config_root2hdf5 ~/.syntastic_cpp_config
 pushd $TMP_PRODUCTSROOT >& /dev/null
 source $TMP_PRODUCTS/setup
 setup catch v1_9_6
