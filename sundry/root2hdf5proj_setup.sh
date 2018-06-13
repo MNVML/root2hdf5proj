@@ -1,15 +1,26 @@
 #!/bin/bash
+
+# this is an example environment config script - users will need to update the
+# `TMP_X` environment variables to point to the area where the UPS products
+# were installed, and may need to comment out the vim config line. note also
+# that this script is generally setting up `debug` versions of products - make
+# sure this matches what you have installed, etc.
+
 TMP_PRODUCTSROOT="/minerva/app/users/perdue"
 TMP_PRODUCTS="hep_hpc_products"
 TMP_PROJECT="/minerva/app/users/perdue/root2hdf5proj"
 
-TMP_PRODUCTSROOT=/home/pcanal/scratch/gabe
-TMP_PRODUCT=build
-TMP_PROJECT=/home/pcanal/scratch/gabe/root2hdf5proj
+# vim config - syntastical if you've got it set up...
+cp ~/.syntastic_cpp_config_root2hdf5 ~/.syntastic_cpp_config
 
-#cp ~/.syntastic_cpp_config_root2hdf5 ~/.syntastic_cpp_config
+#
+# enter the "general" part of the script.
+#
 pushd $TMP_PRODUCTSROOT >& /dev/null
 source $TMP_PRODUCTS/setup
+
+# setups ...
+#
 setup catch v1_9_6
 setup cmake v3_7_1
 # setup fftw v3_3_6_pl2 -q prof
@@ -39,9 +50,13 @@ setup ups v5_2_0
 setup xrootd v4_5_0c -q e14:debug
 setup valgrind v3_12_0
 ups active
+
+# update load-lib path, get an alias to jump to the project area
+#
 pushd $TMP_PROJECT >& /dev/null
 export LD_LIBRARY_PATH=$TMP_PROJECT/lib:$LD_LIBRARY_PATH
 alias gotowork="cd `pwd`"
 type gotowork
+
 popd >& /dev/null
 popd >& /dev/null
