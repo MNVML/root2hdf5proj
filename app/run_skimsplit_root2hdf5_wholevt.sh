@@ -26,7 +26,7 @@ fi
 
 SAMPLE="me1A${DATA}"
 
-PROCESSING="201805"   # NX whole evt id
+PROCESSING="201806"   # NX whole evt id
 KEY="1613670"  # crashes
 KEY="1613671"
 KEY="0000001"
